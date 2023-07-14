@@ -1,0 +1,42 @@
+Auto-Rig Script - System Requirements
+
+Before using the Auto-Rig Script, please ensure that your system
+meets the following requirements:
+
+1. Operating System:
+   - Compatible with Windows 10, macOS 10.13 (High Sierra) or later,
+   or a supported Linux distribution.
+
+2. Software:
+   - Autodesk Maya 2020 or a compatible version installed on your system.
+   - Python 2.7 installed and configured with Maya.
+   - Maya API and Python bindings properly set up.
+
+3. Hardware:
+   - Minimum 2 GHz multi-core processor (or higher recommended)
+   to ensuresmooth performance.
+   - Minimum 8 GB RAM (or higher recommended) for efficient rigging
+   operations.
+   - Adequate disk space to accommodate the Auto-Rig Script and any additional
+   rigging assets.
+
+4. Graphics Card:
+   - A compatible graphics card with up-to-date drivers for optimal
+   viewportperformance.
+   - OpenGL 3.3 support or later.
+
+5. Additional Requirements:
+   - Basic knowledge of Autodesk Maya and rigging principles.
+   - Familiarity with scripting and Python programming is beneficial for
+   customization or extending the Auto-Rig Script.
+
+Please note that these requirements are general guidelines, and your specific
+rigging needs or complex projects may require additional resources or
+configurations. It is recommended to refer to the Auto-Rig Script documentation
+or consult the script's developer for any specific requirements or
+compatibility information.
+
+By ensuring that your system meets these requirements, you can effectively
+utilize the Auto-Rig Script and leverage its features for efficient and
+streamlined rigging workflows.
+
