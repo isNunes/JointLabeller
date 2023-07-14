@@ -5,10 +5,8 @@ A module for creating and managing Joint Labeller functionalities.
 from maya import cmds
 
 
-class LabellerBase(object):
+class LabellerCore():
     def __init__(self):
-
-        print('\n\tjoint_labeller_core module has been activated')
 
         self.selection = list()
 
@@ -63,6 +61,9 @@ class LabellerBase(object):
             else:
                 cmds.setAttr(node + '.side', 0)
         # Defining joint type:
+        print('\n Joints labelled:')
         for type_jnt in cmds.ls(selection = True):
             cmds.setAttr(type_jnt + '.type', 18)
             cmds.setAttr(type_jnt + '.otherType', type_jnt, type = 'string')
+
+            print('\t{}'.format(type_jnt))

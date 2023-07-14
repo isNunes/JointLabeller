@@ -17,9 +17,9 @@ Preparing this to drag'n drop python file and
 python fyle as exe
 '''
 
-#from imp import reload
+from imp import reload
 import JointLabeller.common.ui.joint_labeller_ui as jlui
-#reload(jlui)
+reload(jlui)
 
 
 if __name__ == '__main__':
