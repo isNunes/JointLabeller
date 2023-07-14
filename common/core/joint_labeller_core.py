@@ -7,6 +7,9 @@ from maya import cmds
 
 class LabellerBase(object):
     def __init__(self):
+
+        print('\n\tjoint_labeller_core module has been activated')
+
         self.selection = list()
 
         self.joint_side = {0: 'center', 1: 'left', 2: 'right', 3: 'none'}
@@ -19,8 +22,6 @@ class LabellerBase(object):
                         'extraFinger': 23, 'bigToe': 24, 'indexToe': 25,
                         'middleToe': 26, 'ringToe': 27, 'pinkyToe': 28 ,
                         'footThumb': 29}
-
-        print('\n\tjoint_labeller_core module has been activated')
 
 
     def get_selection(self):

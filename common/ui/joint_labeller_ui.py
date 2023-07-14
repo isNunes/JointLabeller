@@ -1,5 +1,9 @@
 '''
 A module for creating and managing Joint Labeller User Interface
+
+TODO:
+How to make Get Children button works?
+
 '''
 
 import sys
@@ -24,6 +28,21 @@ def labeller_main_window():
 
 
 class JointLabellerUI(QtWidgets.QDialog):
+
+    ui_instance = None
+
+    @classmethod
+    def show_ui(cls):
+        if not cls.ui_instance:
+            cls.ui_instance = JointLabellerUI()
+
+        if cls.ui_instance.isHidden():
+            cls.ui_instance.show()
+        else:
+            cls.ui_instance.raise_()
+            cls.ui_instance.activateWindow()
+
+
     def __init__(self, parent = labeller_main_window()):
         super(JointLabellerUI, self).__init__(parent)
 
@@ -76,21 +95,6 @@ class JointLabellerUI(QtWidgets.QDialog):
             print('{} has been disabled'.format(sender.text()))
 
 
-    def show_ui(self):
-        '''
-        An workaround for calling the UI, since I didn't understand how the
-        __name__ condition is working so far.
-        '''
-        try:
-            joint_labeller_ui.close()
-            joint_labeller_ui.deleteLater()
-        except:
-            pass
-
-        joint_labeller_ui = JointLabellerUI()
-        joint_labeller_ui.show()
-
-
 if __name__ == '__main__':
 
     try:
@@ -101,9 +105,3 @@ if __name__ == '__main__':
 
     joint_labeller_ui = JointLabellerUI()
     joint_labeller_ui.show()
-
-
-'''
-Continue from:
-How to make Get Children button works?
-'''
