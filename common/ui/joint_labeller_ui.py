@@ -65,6 +65,9 @@ class JointLabellerUI(QtWidgets.QDialog):
         '''
         self.get_children_btn = QtWidgets.QPushButton('Get Children')
         self.maintain_selected_btn = QtWidgets.QCheckBox('Maintain Selected')
+        self.maintain_selected_btn.setToolTip(
+            'When deactivated, it will ignore actual selection and return children only')
+
         self.set_labels_btn = QtWidgets.QPushButton('Set Labels')
 
 
@@ -86,15 +89,22 @@ class JointLabellerUI(QtWidgets.QDialog):
         self.set_labels_btn.clicked.connect(self.set_labels)
 
         self.get_children_btn.clicked.connect(self.get_children)
+
         self.maintain_selected_btn.toggled.connect(self.test_checkbox)
 
 
     def get_children(self):
         labeller_core = core.LabellerCore()
-        labeller_core.get_children()
+        if self.maintain_selected_btn.isChecked():
+            labeller_core.get_children(maintainSelection=True)
+        else:
+            labeller_core.get_children()
 
 
     def set_labels(self):
+        '''
+        Applies set_labels accordingly to selection configuration
+        '''
         labeller_core = core.LabellerCore()
         labeller_core.set_labels()
 
