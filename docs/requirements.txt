@@ -1,6 +1,6 @@
-Auto-Rig Script - System Requirements
+JointLabeller Script - System Requirements
 
-Before using the Auto-Rig Script, please ensure that your system
+Before using the JointLabeller Script, please ensure that your system
 meets the following requirements:
 
 1. Operating System:
@@ -17,7 +17,7 @@ meets the following requirements:
    to ensuresmooth performance.
    - Minimum 8 GB RAM (or higher recommended) for efficient rigging
    operations.
-   - Adequate disk space to accommodate the Auto-Rig Script and any additional
+   - Adequate disk space to accommodate the JointLabeller Script and any additional
    rigging assets.
 
 4. Graphics Card:
@@ -28,15 +28,14 @@ meets the following requirements:
 5. Additional Requirements:
    - Basic knowledge of Autodesk Maya and rigging principles.
    - Familiarity with scripting and Python programming is beneficial for
-   customization or extending the Auto-Rig Script.
+   customization or extending the JointLabeller Script.
 
 Please note that these requirements are general guidelines, and your specific
 rigging needs or complex projects may require additional resources or
-configurations. It is recommended to refer to the Auto-Rig Script documentation
+configurations. It is recommended to refer to the JointLabeller Script documentation
 or consult the script's developer for any specific requirements or
 compatibility information.
 
 By ensuring that your system meets these requirements, you can effectively
-utilize the Auto-Rig Script and leverage its features for efficient and
+utilize the JointLabeller Script and leverage its features for efficient and
 streamlined rigging workflows.
-
