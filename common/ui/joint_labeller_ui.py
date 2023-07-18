@@ -1,9 +1,5 @@
 '''
 A module for creating and managing Joint Labeller User Interface
-
-TODO:
-How to make Get Children button works?
-
 '''
 
 import sys
