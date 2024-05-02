@@ -1,25 +1,13 @@
 '''
-A python script for setting joint labels
-
-How to import:
-import sys
-file_path = r'C:\Users\israel.nunes\OneDrive\PRO\Dev\Maya\100 - Tools'
-if file_path not in sys.path:
-    sys.path.append(file_path)
-
-import JointLabeller.common.joint_labeller as label
-reload(label)
-
-label.jlui.JointLabellerUI.show_ui()
-
-TO-DO:
-Preparing this to drag'n drop python file and
-python fyle as exe
+A python script for setting labels side, type and string
+for joints within maya scene.
 '''
 
-from imp import reload
-import JointLabeller.common.ui.joint_labeller_ui as jlui
-reload(jlui)
+
+import importlib
+
+from JointLabeller.common.ui import joint_labeller_ui as jlui
+importlib.reload(jlui)
 
 
 if __name__ == '__main__':

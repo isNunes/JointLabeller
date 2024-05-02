@@ -3,7 +3,7 @@ A module for creating and managing Joint Labeller User Interface
 '''
 
 import sys
-from imp import reload
+import importlib
 
 from PySide2 import QtCore
 from PySide2 import QtWidgets
@@ -13,7 +13,7 @@ from maya import cmds
 import maya.OpenMayaUI as omui
 
 import JointLabeller.common.core.joint_labeller_core as core
-reload(core)
+importlib.reload(core)
 
 
 def labeller_main_window():

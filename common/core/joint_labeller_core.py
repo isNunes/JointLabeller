@@ -54,9 +54,10 @@ class LabellerCore():
         '''
         # Defining joint side:
         for node in self.get_selection():
-            if node[0:2].lower() == 'l_':
+            name_parts = node.split("_")
+            if "L" in name_parts:
                 cmds.setAttr(node + '.side', 1)
-            elif node[0:2].lower() == 'r_':
+            elif "R" in name_parts:
                 cmds.setAttr(node + '.side', 2)
             else:
                 cmds.setAttr(node + '.side', 0)
