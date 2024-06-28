@@ -1,8 +1,9 @@
 
-![joint_labeller_ui](https://github.com/isNunes/JointLabeller/assets/139524834/442f50a9-99a5-4827-a614-339815f70872)
 
 # Joint Labeller
  A python script for setting joints labells inside maya software 2023+
+
+![joint_labeller_ui](https://github.com/isNunes/JointLabeller/assets/139524834/442f50a9-99a5-4827-a614-339815f70872)
 
 
 ======================= I N S T A L L =======================
@@ -34,4 +35,6 @@ label.run()
 
 
 ======================= I N F O  =======================
+
+
 ![image](https://github.com/isNunes/JointLabeller/assets/139524834/2b62d102-1dbb-4045-9a69-c63c0566f7a6)
