@@ -1,16 +1,14 @@
-import importlib
 import os
 import sys
 
 from PySide2 import QtCore
-from PySide2 import QtWidgets
 from PySide2 import QtGui
+from PySide2 import QtWidgets
 from shiboken2 import wrapInstance
 
 import maya.OpenMayaUI as omui
 
 import JointLabeller.common.core.joint_labeller_core as core
-importlib.reload(core)
 
 
 def labeller_main_window():

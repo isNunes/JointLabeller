@@ -1,6 +1,5 @@
-"""
-A module for creating and managing Joint Labeller functionalities.
-"""
+""" A module for creating and managing Joint Labeller functionalities. """
+
 
 from maya import cmds
 
