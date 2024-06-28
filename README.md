@@ -1,3 +1,6 @@
+
+![joint_labeller_ui](https://github.com/isNunes/JointLabeller/assets/139524834/442f50a9-99a5-4827-a614-339815f70872)
+
 # Joint Labeller
  A python script for setting joints labells inside maya software 2020
 
