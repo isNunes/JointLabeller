@@ -32,7 +32,9 @@ and mirroring them across the character.
 
 2 -  Use this text as a python script within Maya 2023+ script editor:
 
+
 from JointLabeller.common import joint_labeller_run as label
+
 label.run()
 
 
