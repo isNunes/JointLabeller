@@ -2,20 +2,36 @@
 ![joint_labeller_ui](https://github.com/isNunes/JointLabeller/assets/139524834/442f50a9-99a5-4827-a614-339815f70872)
 
 # Joint Labeller
- A python script for setting joints labells inside maya software 2020
+ A python script for setting joints labells inside maya software 2023+
 
 
-# How to use it:
-Inside maya 2023+ run the following python code:
+======================= I N S T A L L =======================
 
 
-import importlib
-import os
-import sys
+1 - Copy and Paste "JointLabeller" folder into your Maya scripts directory:
 
-file_path = r'Z:\CB_Repository\Maya\Scripts\RiggingDepartment\100 - Scripts\100 - Tools'
-if file_path not in sys.path:
-    sys.path.append(file_path)
+	C:\...\MyDocuments\Maya\scripts\
 
-from JointLabeller.common import joint_labeller as label
-label.jlui.JointLabellerUI.show_ui()
+
+-------------------------------------------------------------------
+
+
+2 -  Use this text as a python script within Maya 2023+ script editor:
+
+from JointLabeller.common import joint_labeller_run as label
+label.run()
+
+
+-------------------------------------------------------------------
+
+
+3 - Create Button:
+
+ This script can be entered from the script editor and can be made into a button.
+ To do this, just click in scrip editor / file / save script to shelf,
+ Search into the JointLabeller\common\ui\icon Folder and set the icon in your shelf editor.
+
+
+
+======================= I N F O  =======================
+![image](https://github.com/isNunes/JointLabeller/assets/139524834/2b62d102-1dbb-4045-9a69-c63c0566f7a6)
