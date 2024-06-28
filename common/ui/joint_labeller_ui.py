@@ -1,8 +1,10 @@
-import sys
 import importlib
+import os
+import sys
 
 from PySide2 import QtCore
 from PySide2 import QtWidgets
+from PySide2 import QtGui
 from shiboken2 import wrapInstance
 
 import maya.OpenMayaUI as omui
@@ -40,6 +42,10 @@ class JointLabellerUI(QtWidgets.QDialog):
 
     def __init__(self, parent = labeller_main_window()):
         super(JointLabellerUI, self).__init__(parent)
+
+        root_path = os.path.dirname(os.path.abspath(__file__))
+        icon_path = '\\'.join([root_path, 'icon', 'jl_icon.svg'])
+        self.setWindowIcon(QtGui.QIcon(icon_path))
 
         self.setWindowTitle('Joint Labeller')
         self.setMinimumWidth(250)
