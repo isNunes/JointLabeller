@@ -1,7 +1,3 @@
-'''
-A module for creating and managing Joint Labeller User Interface
-'''
-
 import sys
 import importlib
 
@@ -9,7 +5,6 @@ from PySide2 import QtCore
 from PySide2 import QtWidgets
 from shiboken2 import wrapInstance
 
-from maya import cmds
 import maya.OpenMayaUI as omui
 
 import JointLabeller.common.core.joint_labeller_core as core
@@ -19,10 +14,12 @@ importlib.reload(core)
 def labeller_main_window():
     main_window_pointer = omui.MQtUtil.mainWindow()
 
-    if sys.version_info.major >= 3: #A workaround to pythons versions
+    if sys.version_info.major >= 3:
         return wrapInstance(int(main_window_pointer), QtWidgets.QWidget)
     else:
-        return wrapInstance(long(main_window_pointer), QtWidgets.QWidget)
+        return wrapInstance(
+            long(main_window_pointer), # type: ignore
+            QtWidgets.QWidget)
 
 
 class JointLabellerUI(QtWidgets.QDialog):
@@ -47,8 +44,8 @@ class JointLabellerUI(QtWidgets.QDialog):
         self.setWindowTitle('Joint Labeller')
         self.setMinimumWidth(250)
 
-        # Remove ? signal from the window bar
-        self.setWindowFlags(self.windowFlags() ^ QtCore.Qt.WindowContextHelpButtonHint)
+        self.setWindowFlags(
+            self.windowFlags() ^ QtCore.Qt.WindowContextHelpButtonHint)
 
         self.create_widgets()
         self.create_layouts()
@@ -56,22 +53,18 @@ class JointLabellerUI(QtWidgets.QDialog):
 
 
     def create_widgets(self):
-        '''
-        UI elements to apply into layouts that will be parented to the dialog
-        '''
-        self.get_children_btn = QtWidgets.QPushButton('Get Children')
-        self.maintain_selected_btn = QtWidgets.QCheckBox('Maintain Selected')
-        self.maintain_selected_btn.setToolTip(
-            'When deactivated, it will ignore actual selection and return children only')
-
-        self.set_labels_btn = QtWidgets.QPushButton('Set Labels')
+        self.get_all_joints_btn = QtWidgets.QPushButton(
+                            'Get All Joints In The Scene')
+        self.get_hierarchy_btn = QtWidgets.QPushButton(
+                            'Get In The Selected Hierarchy')
+        self.set_labels_btn = QtWidgets.QPushButton(
+                            'Set Labels')
 
 
     def create_layouts(self):
-        top_layout = QtWidgets.QHBoxLayout() # Not using self in this new layout
-        #top_layout.addStretch()
-        top_layout.addWidget(self.get_children_btn)
-        top_layout.addWidget(self.maintain_selected_btn)
+        top_layout = QtWidgets.QHBoxLayout()
+        top_layout.addWidget(self.get_all_joints_btn)
+        top_layout.addWidget(self.get_hierarchy_btn)
 
         bottom_layout = QtWidgets.QVBoxLayout()
         bottom_layout.addWidget(self.set_labels_btn)
@@ -82,44 +75,31 @@ class JointLabellerUI(QtWidgets.QDialog):
 
 
     def create_connections(self):
+        self.get_all_joints_btn.clicked.connect(self.get_in_scene)
+        self.get_hierarchy_btn.clicked.connect(self.get_in_hierarchy)
         self.set_labels_btn.clicked.connect(self.set_labels)
 
-        self.get_children_btn.clicked.connect(self.get_children)
 
-        self.maintain_selected_btn.toggled.connect(self.test_checkbox)
-
-
-    def get_children(self):
+    def get_in_scene(self):
         labeller_core = core.LabellerCore()
-        if self.maintain_selected_btn.isChecked():
-            labeller_core.get_children(maintainSelection=True)
-        else:
-            labeller_core.get_children()
+        labeller_core.get_all_joints_in_the_scene()
+
+
+    def get_in_hierarchy(self):
+        labeller_core = core.LabellerCore()
+        labeller_core.get_joints_in_the_hierarchy()
 
 
     def set_labels(self):
-        '''
-        Applies set_labels accordingly to selection configuration
-        '''
         labeller_core = core.LabellerCore()
         labeller_core.set_labels()
-
-
-    def test_checkbox(self):
-        activated = self.maintain_selected_btn.isChecked()
-
-        sender = self.sender()
-        if activated:
-            print('{} has been activated'.format(sender.text()))
-        else:
-            print('{} has been disabled'.format(sender.text()))
 
 
 if __name__ == '__main__':
 
     try:
-        joint_labeller_ui.close() # pylint: disable=E0601
-        joint_labeller_ui.deleteLater()
+        joint_labeller_ui.close() # type: ignore
+        joint_labeller_ui.deleteLater() # type: ignore
     except:
         pass
 

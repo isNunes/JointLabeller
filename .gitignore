@@ -1,0 +1,11 @@
+# Folder
+extra/
+tests/
+wip/
+__pycache__/
+
+
+# Entensions
+*.pyc
+*.pur
+*.ini
